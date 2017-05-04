@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: {name: 'Anonymous'}, 
+      currentUser: {name: 'Harry'}, 
       messages: [],
       userCount: 0
     }
@@ -69,12 +69,8 @@ componentDidMount() {
   render() {
     return (
       <div>
-        <nav className="navbar">
-          <a href="/" className="navbar-brand">Chatty</a>
-          <div className="connected"> User(s) online: {this.state.userCount} </div>
-        </nav>
-        <MessageList messages={this.state.messages} />
-        <Chatbar name = {this.state.currentUser.name} addMessage={this.addMessage} nameChange={this.nameChange.bind(this)}/>
+        <MessageList messages={this.state.messages} className='messages'/>
+        <Chatbar name = {this.state.currentUser.name} addMessage={this.addMessage} nameChange={this.nameChange.bind(this)} className='input'/>
       </div>      
     )
   }
